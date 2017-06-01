@@ -1,0 +1,167 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function flatclassifieds_helper_install() {
+  
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function flatclassifieds_helper_uninstall() {
+
+}
+
+/**
+ * Update 1
+ */
+function flatclassifieds_helper_update_1() {
+  variable_set('install_profile', 'flatclassifieds');
+}
+
+/**
+ * Update 2
+ */
+function flatclassifieds_helper_update_2() {
+  variable_set('install_profile', 'standard');
+  db_update('system')->fields(array('status' => 0))->condition('type', 'module')->condition('name', 'flatclassifieds')->execute();
+}
+
+/**
+ * Update 3
+ */
+function flatclassifieds_helper_update_3() {
+  db_update('system')->fields(array('status' => 1))->condition('type', 'module')->condition('name', 'standard')->execute();
+}
+
+/**
+ * Update 4
+ */
+function flatclassifieds_helper_update_4() {
+  db_query("CREATE TABLE `{users_location_cache}` (
+    `ip` varchar(255) NOT NULL,
+    `uid` int(11) NOT NULL,
+    `country` varchar(255) NOT NULL,
+    `city` varchar(255) NOT NULL,
+    `state` varchar(255) NOT NULL,
+    `latitude` decimal(10,6) NOT NULL DEFAULT '0.000000',
+    `longitude` decimal(10,6) NOT NULL DEFAULT '0.000000'
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+  );
+}
+
+/**
+ * Update 5
+ */
+function flatclassifieds_helper_update_5() {
+  db_query("CREATE TABLE `{pch_view_categories}` (
+    `pid` int(11) NOT NULL AUTO_INCREMENT,
+    `field_name` varchar(32) NOT NULL,
+    `entity_type` varchar(32) NOT NULL,
+    `tid` int(11) NOT NULL,
+    PRIMARY KEY (`pid`)
+    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;"
+  );
+}
+
+/**
+ * Update 6
+ */
+function flatclassifieds_helper_update_6() {
+  $t = get_t();
+  
+  db_query("CREATE TABLE `pch_timeline` (
+    `oid` int(11) NOT NULL,
+    `nid` int(11) NOT NULL,
+    `type` varchar(32) NOT NULL,
+    `start` int(11) NOT NULL,
+    `end` int(11) NOT NULL,
+    `status` int(11) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+  );
+  
+  // Create the node checkout product type - we do this for the
+  // commerce_node_checkout_expiry sub-module to be able to target the product
+  // with additional product types.
+  $product_types = commerce_product_types();
+  if (empty($product_types['payto'])) {
+    $product_type = commerce_product_ui_product_type_new();
+
+    $product_type['type'] = 'payto';
+    $product_type['name'] = $t('Pay to...');
+    $product_type['description'] = '';
+    $product_type['is_new'] = TRUE;
+
+    commerce_product_ui_product_type_save($product_type, FALSE);
+    commerce_price_create_instance('commerce_price', 'commerce_product', 'payto', $t('Price'), 0, 'calculated_sell_price');
+  }
+
+  // If a field type we know should exist isn't found, clear the Field cache.
+  if (!field_info_field_types('node_reference')) {
+    field_cache_clear();
+  }
+
+  // Make sure our entity info exists.
+  entity_info_cache_clear();
+
+  // Setup line item type.
+  commerce_line_item_configure_line_item_type(array('type' => 'ph_commerce_node'));
+  commerce_product_line_item_configuration(array('type' => 'ph_commerce_node'));
+
+  // Create our fields.
+  foreach (_flatclassifieds_helper_installed_fields() as $field_name => $field_detail) {
+    // Look for existing field.
+    $field = field_info_field($field_name);
+
+    if (empty($field)) {
+      $field = field_create_field($field_detail);
+    }
+  }
+
+  // And their instances.
+  foreach (_flatclassifieds_helper_installed_instances() as $field_name => $instance_detail) {
+    // Look for existing instance.
+    $instance = field_info_instance($instance_detail['entity_type'], $field_name, $instance_detail['bundle']);
+
+    if (empty($instance)) {
+      field_create_instance($instance_detail);
+    }
+  }
+}
+
+function _flatclassifieds_helper_installed_fields() {
+  $t = get_t();
+  return array(
+    'ph_commerce_node' => array(
+      'field_name' => 'ph_commerce_node',
+      'cardinality' => 1,
+      'type'        => 'node_reference',
+      'settings'    => array(
+        'referenceable_types' => node_type_get_names(),
+      ),
+    ),
+  );
+}
+
+function _flatclassifieds_helper_installed_instances() {
+  $t = get_t();
+  return array(
+    'ph_commerce_node' => array(
+      'entity_type' => 'commerce_line_item',
+      'bundle' => 'ph_commerce_node',
+      'field_name' => 'ph_commerce_node',
+      'label'       => $t('Associated content'),
+      'widget'      => array(
+        'type'    => 'options_select',
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'node_reference_default',
+        ),
+      ),
+    ),
+  );
+}

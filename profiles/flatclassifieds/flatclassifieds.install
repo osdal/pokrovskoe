@@ -1,0 +1,52 @@
+<?php
+//
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function flatclassifieds_install() {
+
+}
+
+function flatclassifieds_install_tasks(&$install_state) {
+
+
+
+  $tasks['_flatclassifieds_install_task_1'] = array(
+    'display_name' => t('Installing FlatClassifieds'),
+    'type' => 'normal',
+    'display' => FALSE,
+  );
+
+  return $tasks;
+}
+
+function flatclassifieds_install_tasks_alter(&$tasks, $install_state) {
+//   drupal_set_message('<pre>'. check_plain(print_r($tasks, 1)) .'</pre>');
+  $old_tasks = $tasks;
+  $tasks = array_slice($old_tasks, 0, 9) +  array_slice($old_tasks, 10, 1) + array_slice($old_tasks, 9, 1) + array_slice($old_tasks, 11);
+//   drupal_set_message('<pre>'. check_plain(print_r($tasks, 1)) .'</pre>');
+}
+
+function _flatclassifieds_install_tasks() {
+  $operations = array();
+  $operations[] = array('_flatclassifieds_install_task_1', array());
+  $batch = array(
+    'title' => t('Installing FlatClassifieds'),
+    'operations' => $operations
+  );
+  return $batch;
+}
+
+function _flatclassifieds_install_task_1() {
+  $sql_file = dirname(__FILE__).'/site.sql';
+  $count = _wr_profile_import_sql($sql_file);
+    $name = db_select('system', 's')->fields('s', array('name'))->condition('s.name', 'flatclassifieds')->condition('s.type', 'module')->execute()->fetchField();
+  if ($name == 'flatclassifieds') {
+    db_update('system')->condition('name', 'flatclassifieds')->condition('type', 'module')->fields(array('status' => 1))->execute();
+  } else {
+    db_query(_wr_profile_prefixTables("INSERT INTO `prefixflcl_system` (`filename`, `name`, `type`, `owner`, `status`, `bootstrap`, `schema_version`, `weight`, `info`) VALUES ('profiles/flatclassifieds/flatclassifieds.profile', 'flatclassifieds', 'module', '', 1, 0, 0, 1000, X'613A31343A7B733A343A226E616D65223B733A31343A2250726F436C617373696669656473223B733A31313A226465736372697074696F6E223B733A35313A22496E7374616C6C207769746820636F6D6D6F6E6C792075736564206665617475726573207072652D636F6E666967757265642E223B733A373A2276657273696F6E223B733A393A22372E782D312E302E32223B733A343A22636F7265223B733A333A22372E78223B733A31323A22646570656E64656E63696573223B613A32313A7B693A303B733A353A22626C6F636B223B693A313B733A353A22636F6C6F72223B693A323B733A373A22636F6D6D656E74223B693A333B733A31303A22636F6E7465787475616C223B693A343B733A393A2264617368626F617264223B693A353B733A343A2268656C70223B693A363B733A353A22696D616765223B693A373B733A343A226C697374223B693A383B733A343A226D656E75223B693A393B733A363A226E756D626572223B693A31303B733A373A226F7074696F6E73223B693A31313B733A343A2270617468223B693A31323B733A383A227461786F6E6F6D79223B693A31333B733A353A2264626C6F67223B693A31343B733A363A22736561726368223B693A31353B733A383A2273686F7274637574223B693A31363B733A373A22746F6F6C626172223B693A31373B733A373A226F7665726C6179223B693A31383B733A383A226669656C645F7569223B693A31393B733A343A2266696C65223B693A32303B733A333A22726466223B7D733A373A2270726F6A656374223B733A363A2264727570616C223B733A393A22646174657374616D70223B733A31303A2231323934323038373536223B733A373A227061636B616765223B733A353A224F74686572223B733A333A22706870223B733A353A22352E322E34223B733A353A2266696C6573223B613A303A7B7D733A393A22626F6F747374726170223B693A303B733A363A2268696464656E223B623A313B733A383A227265717569726564223B623A313B733A31373A22646973747269627574696F6E5F6E616D65223B733A363A2244727570616C223B7D');"));
+  }
+}

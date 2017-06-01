@@ -1,0 +1,124 @@
+.top-mobile {
+	width: 100%;
+}
+/*
+#toolbar.top-mobile a {
+  border: solid 1px #fff;
+  font-size: 16px;
+  line-height: 40px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
+  white-space: nowrap;
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+*/
+#toolbar.top-mobile .toolbar-menu {
+background: #fff url(../img/info_box_shadow_h21.png) center 0px  repeat-x;
+}
+#toolbar.top-mobile a img {
+  margin: 3px 8px 0px 8px;
+  width: 24px;
+  height: 24px;
+}
+.body-mobile {
+padding: 0px;
+padding-top: 10px;
+}
+
+
+
+
+
+.body-mobile .bgw {
+  padding: 10px;
+  padding-top: 0px;
+}
+.body-mobile .bgt {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.body-mobile .view-category-mobile ul {
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.body-mobile .view-category-mobile ul li {
+	margin: 0;
+	padding: 0;
+}
+.body-mobile .view-category-mobile ul li a {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+    
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .body-mobile  {
+    width: 100%;
+  }
+
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .body-mobile {
+    width: 100%;
+  }
+
+}
+@media only screen and (max-width: 479px) {
+  .body-mobile {
+    width: 100%;
+  }
+.body-mobile .cnt_box {
+    width: 300px;
+  }
+.body-mobile .cnt_box .inbox .photo {
+	height: 266px;
+}
+.body-mobile .cnt_box .photo .hw {
+	height: 265px;
+	width: 292px;
+}
+.body-mobile .cnt_box .photo .brd {
+	background: url(../img/f-rm.png) no-repeat;
+	height: 265px;
+	width: 292px;
+}
+.body-mobile .cnt_box .inbox .photo img {
+  width: 100%;
+  height: 265px;
+}
+.body-mobile .cnt_box .hw .field
+{
+	width: 282px;
+}
+.body-mobile .cnt_box .photo .lc2,
+.body-mobile .cnt_box .photo .lc3,
+.body-mobile .cnt_box .photo .lch,
+.body-mobile .cnt_box .photo .lcb,
+.body-mobile .cnt_box .photo .lc1 {
+	width: 300px;
+}
+
+.body-mobile .cnt_page .content-left-block {
+	width: 100%;	
+}
+.body-mobile .node-type-classified .cnt_page .content-right-block {
+	width: 100%;
+}
+.body-mobile .classified {
+	  width: 100%;
+  }
+.body-mobile .node-type-classified .cnt_page .content-right-block {
+	width: 100%;
+}
+.body-mobile .classified .field-name-field-image-ca {
+	  width: 100%;
+  }
+}

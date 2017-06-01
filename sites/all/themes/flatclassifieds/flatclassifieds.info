@@ -1,0 +1,55 @@
+
+name = FlatClassifieds
+description = Premium Drupal theme by <a href="http://www.themesnap.com">ThemeSnap.com</a>.
+screenshot = screenshot.png
+version = "7.x-1.0"
+core = 7.x
+
+settings[tm_value_0] = themesnap
+settings[tm_value_1] = 31408169@N04
+settings[tm_value_2] = 1
+settings[tm_value_3] = cream
+settings[tm_value_4] = calibri
+settings[tm_value_5] = rokkitt
+settings[tm_value_6] = 1
+settings[tm_value_7] = random
+settings[tm_value_8] = pie
+settings[tm_value_9] = 3000
+settings[tm_value_10] = 1000
+settings[tm_value_11] = true
+settings[tm_value_12] = Cinzel Decorative
+settings[tm_value_13] = 0
+settings[tm_value_14] = 0
+settings[tm_value_15] = 1
+
+regions[sidebar_top_menu] = Sidebar Top Menu
+regions[sidebar_language] = Sidebar Language
+regions[sidebar_search] = Sidebar Search
+regions[content] = Content
+regions[sidebar] = Sidebar
+regions[footer_1] = Footer Sidebar 1
+regions[footer_2] = Footer Sidebar 2
+regions[footer_3] = Footer Sidebar 3
+regions[footer_4] = Footer Sidebar 4
+regions[footer_copyright] = Footer Copyright
+
+stylesheets[all][] = css/ui-lightness/jquery-ui-1.10.4.css
+stylesheets[all][] = css/jquery.ui.slider-rtl.css
+stylesheets[all][] = css/chosen.min.css
+stylesheets[all][] = css/style.css
+
+//scripts[] = js/jquery.tweet.min.js
+//scripts[] = js/jquery.imagesloaded.min.js
+//scripts[] = js/jquery.masonry.js
+//scripts[] = js/jquery.infinitescroll.min.js
+
+scripts[] = j/jquery-ui-1.10.4.min.js
+scripts[] = j/jquery.ui.slider-rtl.min.js
+scripts[] = j/jquery.tools.min.js
+scripts[] = j/modernizr.touch.js
+scripts[] = j/jquery.ui.touch-punch.min.js
+scripts[] = j/chosen.jquery.min.js
+scripts[] = j/gmap3.min.js
+scripts[] = j/gmap3.infobox.js
+scripts[] = j/main.js
+scripts[] = j/menu.js

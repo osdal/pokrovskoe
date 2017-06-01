@@ -1,0 +1,181 @@
+html.js input.form-autocomplete {
+  background-position: 3px 70px; /* LTR */
+}
+html.js input.throbbing {
+  background-position: 3px -16px; /* LTR */
+}
+body {
+  overflow-X: hidden;
+}
+.left {
+	float: right;
+}
+.right {
+	float: left;
+}
+
+.navbar-header {
+    float: right;
+}
+.navbar-right {
+    float: left !important;
+}
+.region-sidebar-top-menu {
+    float: right;
+}
+.navbar-brand {
+    padding: 10px 0 15px 15px;
+}
+#logo img {
+    margin-right: 0px;
+    margin-left: 5px;
+}
+a.addpost {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+.views-exposed-form .views-exposed-widget {
+    float: right;
+}
+#edit-submit-search-page {
+    padding-right: 20px;
+    padding-left: 42px;
+    background-position: left;
+}
+#views-exposed-form-search-page-page .form-item-keys .form-text {
+    padding: 0px 20px;
+    border-color: #FFF #FFF #FFF #E7E7E7;
+}
+#views-exposed-form-search-page-page .chosen-container-single .chosen-single {
+    padding: 10px 10px 10px 20px;
+    border-color: #FFF #FFF #FFF #E7E7E7;
+    background-position: left;
+}
+#views-exposed-form-search-page-page .chosen-container-active.chosen-with-drop .chosen-single {
+  padding: 10px 10px 10px 30px;
+  border-color: #FFF #FFF #FFF #E7E7E7;
+  background-position: left;
+}
+#views-exposed-form-search-page-page .views-widget-filter-distance {
+    padding: 22px 55px 0px 20px;
+    background-position: right;
+}
+.chosen-container.chosen-with-drop .chosen-drop {
+    right: 0px;
+    left: auto;
+}
+.map_ico_ovr {
+    padding-left: 0px;
+    padding-right: 11px;
+}
+.btn-group-justified > .btn, .btn-group-justified > .btn-group {
+    width: auto;
+}
+.category_home_block h3 {
+    padding: 25px 68px 25px 10px;
+}
+.category_home_block .termimg {
+    margin: -10px -58px 0px 0px;
+}
+.category_home_block h3 b {
+  float: left;
+}
+.category_home_block ul.menu li b {
+  float: left;
+}
+.sidebar-left-or-right-block .block {
+    margin: 10px 5px 0px 0px;
+}
+.view-most-popular .views-row img {
+    float: right;
+    margin-right: 0px;
+    margin-left: 10px;
+}
+.view-most-popular .mpop_txt {
+    margin-left: 0px;
+    margin-right: 60px;
+}
+.clblock .clcontact {
+    border-right: none;
+    border-left: 1px solid #E4E4E4;
+    float: right;
+}
+.clblock .cldata {
+    float: right;
+}
+.node-classified .clblock .field, .node-classified .clblock .location-locations-wrapper, .node-classified-noex .clblock .field, .node-classified-noex .clblock .location-locations-wrapper, .node-product .clblock .field, .node-product .clblock .location-locations-wrapper {
+    float: right;
+}
+.node-classified .clblock .clcontact .field-item, .node-classified-noex .clblock .clcontact .field-item, .node-product .clblock .clcontact .field-item {
+    float: right;
+    padding-left: 0px;
+    padding-right: 36px;
+}
+.node-classified .clblock .field-name-field-phone .field-item, .node-classified-noex .clblock .field-name-field-phone .field-item, .node-product .clblock .field-name-field-phone .field-item {
+    background-position: right;
+}
+.node-classified .clblock .field-name-field-email .field-item, .node-classified-noex .clblock .field-name-field-email .field-item, .node-product .clblock .field-name-field-email .field-item {
+    background-position: right;
+}
+.node-classified .clblock .location-locations-wrapper, .node-classified-noex .clblock .location-locations-wrapper, .node-product .clblock .location-locations-wrapper {
+    padding-left: 0px;
+    padding-right: 36px;
+    background-position: right;
+}
+.node-classified .clblock .field-label, .node-classified-noex .clblock .field-label, .node-product .clblock .field-label {
+    float: right;
+}
+.node-classified .clblock .field-item, .node-classified-noex .clblock .field-item, .node-product .clblock .field-item {
+    float: left;
+}
+.cf_price {
+    margin: 0px 10px 0px 0px;
+    float: left;
+}
+.cf_icon {
+    margin: 0px 0px 0px 10px;
+    float: right;
+}
+.user-picture img {
+    float: right;
+    margin-right: 0px;
+    margin-left: 10px;
+}
+ul.menu li a {
+    padding: 0px 20px 0px 0px;
+}
+ul.menu li a b {
+    float: left;
+}
+ul.menu .collapsedd a {
+    background-position: right;
+}
+ul.menu .expandedd a {
+    background-position: right;
+}
+ul.menu ul.menu li a {
+    padding: 0px 15px 0px 0px;
+    background-position: right;
+}
+ul.menu ul.menu li {
+    margin-left: 0px;
+    margin-right: 15px;
+}
+.node-blog.node-teaser .field-name-field-image img {
+    float: right;
+    margin-right: 0px;
+    margin-left: 30px;
+}
+.node-blog .field-name-field-image img {
+    float: right;
+    margin-right: 0px;
+    margin-left: 30px;
+}
+.chosen-container-active.chosen-with-drop .chosen-single,
+.chosen-container-single .chosen-single {
+    padding: 10px 10px 10px 20px;
+    background-position: left;
+}
+.block_price .title .price {
+  float: left;
+}
